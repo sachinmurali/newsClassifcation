@@ -22,6 +22,8 @@ try:
 
 			for script in soup(["header", "nav", "footer", "script", "style"]):
 				script.extract()
+			for div in soup.findAll('div', 'column2 grid4'):
+				div.extract()
 
 			# get text
 			text = soup.get_text()
