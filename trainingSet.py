@@ -20,7 +20,7 @@ try:
 
 			soup = BeautifulSoup(page.read())
 
-			for script in soup(["script", "style"]):
+			for script in soup(["header", "nav", "footer", "script", "style"]):
 				script.extract()
 
 			# get text
@@ -31,10 +31,10 @@ try:
 			# break multi-headlines into a line each
 			chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
 			# drop blank lines
-			text = '\n'.join(chunk for chunk in chunks if chunk)	 
+			text = '\n'.join(chunk for chunk in chunks if chunk)
 
 			print text
 
 			page.close()
 except:
-	pass			
+	pass
