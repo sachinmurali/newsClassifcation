@@ -3,17 +3,20 @@ import itertools
 import urllib2
 from bs4 import BeautifulSoup
 
-# i = 3
-
 try:
+	train_data = []
 	with open('Reuter_data.csv', 'rb') as myFile:
 		# reader = csv.reader(myFile)
-		dialect = csv.Sniffer().sniff(myFile.read(), delimiters = ";,")
-		myFile.seek(0)
-		reader = csv.reader(myFile, dialect)
+		# dialect = csv.Sniffer().sniff(myFile.read(), [',',';'])
+		# myFile.seek(0)
+		# reader = csv.reader(myFile, dialect)
 		# row_count = sum(1 for row in reader)
 		# print row_count
-		for row in itertools.islice(reader, 3, 4):
+		# print row_count
+		reader = csv.reader(myFile, delimiter=';', quotechar='|')
+
+		for row in reader:
+			# print row
 			link = row[0]
 
 			page = urllib2.urlopen(link)
@@ -35,8 +38,15 @@ try:
 			# drop blank lines
 			text = '\n'.join(chunk for chunk in chunks if chunk)
 
-			print text
+			# add to dict
+			train_data.append({
+				'url': link,
+				'content': text,
+				'class': row[1]
+			})
+			ipdb.set_trace()  ######### Break Point ###########
 
 			page.close()
+	print train_data
 except:
 	pass
