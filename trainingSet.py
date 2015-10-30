@@ -5,56 +5,67 @@ from bs4 import BeautifulSoup
 import cPickle as pickle
 import sys
 
-# try:
-train_data = []
-with open('Reuter_data.csv', 'rb') as myFile:
-	# reader = csv.reader(myFile)
-	# dialect = csv.Sniffer().sniff(myFile.read(), [',',';'])
-	# myFile.seek(0)
-	# reader = csv.reader(myFile, dialect)
-	# row_count = sum(1 for row in reader)
-	# print row_count
-	# print row_count
-	reader = csv.reader(myFile, delimiter=';', quotechar='|')
+class DataExtractor(object):
+	def __init__(self):
+		self.training_data = []
 
-	for row in reader:
-		try:
-			# print row
-			link = row[0]
+	def SetCSVFileName(self, filename):
+		self.csvFilename = filename
 
-			page = urllib2.urlopen(link)
+	def GetTrainingData(self):
+		return self.training_data;
 
-			soup = BeautifulSoup(page.read())
+	def ReadPickledData(self):
+		with open('data_dump', 'rb') as dump_file:
+			pickled_data = pickle.load(dump_file);
+			return pickled_data
 
-			for script in soup(["header", "nav", "footer", "script", "style"]):
-				script.extract()
-			for div in soup.findAll('div', 'column2 grid4'):
-				div.extract()
+	def GetArticles(self):
+		with open(self.csvFilename, 'rb') as myFile:
+			reader = csv.reader(myFile, delimiter=';', quotechar='|')
 
-			# get text
-			text = soup.get_text()
+			for row in reader:
+				try:
+					# print row
+					link = row[0]
 
-			# break into lines and remove leading and trailing space on each
-			lines = (line.strip() for line in text.splitlines())
-			# break multi-headlines into a line each
-			chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
-			# drop blank lines
-			text = '\n'.join(chunk for chunk in chunks if chunk)
+					page = urllib2.urlopen(link)
 
-			# add to dict
-			train_data.append({
-				'url': link,
-				'content': text,
-				'class': row[1]
-			})
+					soup = BeautifulSoup(page.read())
 
-			page.close()
-		except Exception, e:
-			print e
-			continue
-# print train_data
-with open('data_dump', 'wb') as dump:
-	pickle.dump(train_data, dump, pickle.HIGHEST_PROTOCOL)
-# except Exception, e:
-# 	print e
-# 	pass
+					for script in soup(["header", "nav", "footer", "script", "style"]):
+						script.extract()
+					for div in soup.findAll('div', 'column2 grid4'):
+						div.extract()
+
+					# get text
+					text = soup.get_text()
+
+					# break into lines and remove leading and trailing space on each
+					lines = (line.strip() for line in text.splitlines())
+					# break multi-headlines into a line each
+					chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
+					# drop blank lines
+					text = '\n'.join(chunk for chunk in chunks if chunk)
+
+					# add to dict
+					self.training_data.append({
+						'url': link,
+						'content': text,
+						'class': row[1]
+					})
+
+					page.close()
+				except Exception, e:
+					print e
+					continue
+		# print train_data
+		with open('data_dump', 'wb') as dump:
+			pickle.dump(self.training_data, dump, pickle.HIGHEST_PROTOCOL)
+
+if __name__ == "__main__":
+	# simple test to test all the functions in the class
+	# a = DataExtractor()
+	# a.SetCSVFileName('Reuter_data.csv')
+	# a.GetArticles()
+	# print a.ReadPickledData()
