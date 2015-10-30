@@ -2,20 +2,23 @@ import csv
 import itertools
 import urllib2
 from bs4 import BeautifulSoup
+import cPickle as pickle
+import sys
 
-try:
-	train_data = []
-	with open('Reuter_data.csv', 'rb') as myFile:
-		# reader = csv.reader(myFile)
-		# dialect = csv.Sniffer().sniff(myFile.read(), [',',';'])
-		# myFile.seek(0)
-		# reader = csv.reader(myFile, dialect)
-		# row_count = sum(1 for row in reader)
-		# print row_count
-		# print row_count
-		reader = csv.reader(myFile, delimiter=';', quotechar='|')
+# try:
+train_data = []
+with open('Reuter_data.csv', 'rb') as myFile:
+	# reader = csv.reader(myFile)
+	# dialect = csv.Sniffer().sniff(myFile.read(), [',',';'])
+	# myFile.seek(0)
+	# reader = csv.reader(myFile, dialect)
+	# row_count = sum(1 for row in reader)
+	# print row_count
+	# print row_count
+	reader = csv.reader(myFile, delimiter=';', quotechar='|')
 
-		for row in reader:
+	for row in reader:
+		try:
 			# print row
 			link = row[0]
 
@@ -44,9 +47,14 @@ try:
 				'content': text,
 				'class': row[1]
 			})
-			ipdb.set_trace()  ######### Break Point ###########
 
 			page.close()
-	print train_data
-except:
-	pass
+		except Exception, e:
+			print e
+			continue
+# print train_data
+with open('data_dump', 'wb') as dump:
+	pickle.dump(train_data, dump, pickle.HIGHEST_PROTOCOL)
+# except Exception, e:
+# 	print e
+# 	pass
