@@ -49,11 +49,7 @@ class DataExtractor(object):
 					text = '\n'.join(chunk for chunk in chunks if chunk)
 
 					# add to dict
-					self.training_data.append({
-						'url': link,
-						'content': text,
-						'class': row[1]
-					})
+					self.training_data.append(({'content': text}, row[1]))
 
 					page.close()
 				except Exception, e:
@@ -64,6 +60,7 @@ class DataExtractor(object):
 			pickle.dump(self.training_data, dump, pickle.HIGHEST_PROTOCOL)
 
 if __name__ == "__main__":
+	pass
 	# simple test to test all the functions in the class
 	# a = DataExtractor()
 	# a.SetCSVFileName('Reuter_data.csv')
