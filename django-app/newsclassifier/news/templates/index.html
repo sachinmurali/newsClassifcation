@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>News Classification</title>
+    <link rel="stylesheet" href="/static/bower_components/bootstrap/dist/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/static/bower_components/components-font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+    <script src="/static/bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="/static/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/static/js/script.js"></script>
+    <script type="text/javascript" src="/static/bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="/static/js/components/main.js"></script>
+  </head>
+  <body ng-app="newsclassifier">
+    <div ng-controller="MainController">
+      <div class="main-container">
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="navbar-header">
+            <a class="navbar-brand brand-title">News Classifier</a></div>
+          <div class="container">
+          </div>
+        </nav>
+        <div class="row main-sections">
+          <div class="col-md-3 categories-pane">
+            <h1>Categories</h4>
+            <ul class="list-group">
+              <li class="list-group-item category">Cras justo odio</li>
+              <li class="list-group-item">Dapibus ac facilisis in</li>
+              <li class="list-group-item">Morbi leo risus</li>
+              <li class="list-group-item">Porta ac consectetur ac</li>
+              <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+          </div>
+          <div class="col-md-9 cat-list-pane">
+            <h1>Business</h1>
+            <div class="list-group">
+              <a href="#" class="list-group-item active cat">
+                Cras justo odio
+              </a>
+              <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+              <a href="#" class="list-group-item">Morbi leo risus</a>
+              <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+              <a href="#" class="list-group-item">Vestibulum at eros</a>
+            </div>
+          </div>
+          <div class="col-md-6 article-pane">
+            <h1>
+              Wall Street Crash
+            <h1>
+            <p class="article-text">
+              The Wall Street Crash of 1929, also known as Black Tuesday, the Great Crash, or the Stock Market Crash of 1929, began on October 24, 1929, and was the most devastating stock market crash in the history of the United States, when taking into consideration the full extent and duration of its fallout.[2] The crash signaled the beginning of the 10-year Great Depression that affected all Western industrialized countries
+            <p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
