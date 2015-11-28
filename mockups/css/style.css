@@ -41,9 +41,17 @@ body {
 }
 
 .cat-list-pane {
+  color: #000000;
+  font-size: 20px;
+  border-right: 1px solid #D3D3D3;
+  height: 100vh;
 }
 
 .article-pane {
+}
+
+.article-text {
+  font-size: 20px;
 }
 
 .main-sections {
