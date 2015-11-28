@@ -45,9 +45,11 @@ body {
   font-size: 20px;
   border-right: 1px solid #D3D3D3;
   height: 100vh;
+  display: none;
 }
 
 .article-pane {
+  display: none;
 }
 
 .article-text {
@@ -56,4 +58,8 @@ body {
 
 .main-sections {
   margin: 0;
+}
+
+.cat {
+  cursor: pointer;
 }
