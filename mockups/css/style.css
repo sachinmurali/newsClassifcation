@@ -1,0 +1,29 @@
+body {
+  font-family: 'Poiret One', cursive;
+}
+
+.splash {
+  margin-top: 40px;
+  font-size: 20em;
+}
+
+.main-title{
+  text-align: center;
+}
+
+.main-desc {
+  text-align: center;
+  font-size: 30px;
+}
+
+.get-started {
+  font-size: 35px;
+}
+
+.btn-align {
+  text-align: center;
+}
+
+.brand-title {
+  font-size: 35px;
+}

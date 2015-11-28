@@ -1,0 +1,20 @@
+{
+  "name": "newsClassification",
+  "version": "0.0.0",
+  "homepage": "https://github.com/sachinmurali/newsClassifcation",
+  "authors": [
+    "saurabh.sood@colorado.edu"
+  ],
+  "description": "News Classifier system",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
