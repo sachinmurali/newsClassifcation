@@ -45,7 +45,7 @@ body {
   font-size: 20px;
   border-right: 1px solid #D3D3D3;
   height: 100vh;
-  display: none;
+  /*display: none;*/
 }
 
 .article-pane {
@@ -61,5 +61,9 @@ body {
 }
 
 .cat {
+  cursor: pointer;
+}
+
+.category {
   cursor: pointer;
 }

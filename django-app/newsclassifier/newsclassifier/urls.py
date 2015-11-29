@@ -20,4 +20,6 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^main/', 'news.views.main'),
     url(r'^index/', 'news.views.index'),
+    url(r'^getnewarticles/', 'news.views.GetNewArticles'),
+    url(r'^retrievearticles/', 'news.views.RetrieveArticles'),
 ]

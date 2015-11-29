@@ -6,5 +6,5 @@ class Article(models.Model):
     # article_num = models.CharField(max_length=100)
     article_title = models.TextField(max_length=100)
     article_content = models.TextField(max_length=1000)
-    article_url = models.URLField()
+    # article_url = models.URLField()
     article_category = models.TextField(max_length=100)

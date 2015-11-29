@@ -1,11 +1,11 @@
 from utility import *
 
 class Classifier():
-     def __init__(pickle_file):
+     def __init__(self, pickle_file):
          """
-         Load classifier object from pickled file 
+         Load classifier object from pickled file
 	 """
          self.classifier = read_pickled_data(pickle_file)
 
-     def predict(testset):
-	 return self.classifier.predict(testset)	
+     def predict(self, testset):
+	        return self.classifier.predict(testset)
