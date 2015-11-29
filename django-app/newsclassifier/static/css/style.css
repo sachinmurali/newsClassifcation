@@ -50,6 +50,8 @@ body {
 
 .article-pane {
   display: none;
+  height: 100vh;
+  overflow-y: scroll;
 }
 
 .article-text {
@@ -66,4 +68,9 @@ body {
 
 .category {
   cursor: pointer;
+}
+
+.list-scroll {
+  overflow-y: scroll;
+  height: 100vh;
 }

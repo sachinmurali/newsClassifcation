@@ -3,8 +3,4 @@ $(function(){
     $('.article-pane').hide();
     $('.cat-list-pane').removeClass('col-md-3').addClass('col-md-9').show();
   });
-  $('.cat').click(function(){
-    $('.cat-list-pane').removeClass('col-md-9').addClass('col-md-3');
-    $('.article-pane').show();
-  });
-});
+})();

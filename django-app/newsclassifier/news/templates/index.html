@@ -33,17 +33,16 @@
             </ul>
           </div>
           <div class="col-md-9 cat-list-pane">
-            <h1 id="select_{{test}}">Welcome {{test}}</h1>
-            <div class="list-group">
-              <p  class="list-group-item cat" ng-repeat="element in ctrl.current_articles">{{ element }}</p>
+            <div class="list-group list-scroll">
+              <a class="list-group-item cat" ng-repeat="element in ctrl.current_articles" ng-click="ctrl.DisplayArticle(element)">{[{ element["fields"]["article_title"] }]}</a>
             </div>
           </div>
           <div class="col-md-6 article-pane">
             <h1>
-              Wall Street Crash
+              {[{ctrl.current_article["fields"]["article_title"]}]}
             <h1>
             <p class="article-text">
-              The Wall Street Crash of 1929, also known as Black Tuesday, the Great Crash, or the Stock Market Crash of 1929, began on October 24, 1929, and was the most devastating stock market crash in the history of the United States, when taking into consideration the full extent and duration of its fallout.[2] The crash signaled the beginning of the 10-year Great Depression that affected all Western industrialized countries
+              {[{ctrl.current_article["fields"]["article_content"]}]}
             <p>
           </div>
         </div>
