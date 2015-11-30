@@ -51,7 +51,8 @@ body {
 .article-pane {
   display: none;
   height: 100vh;
-  overflow-y: scroll;
+  overflow-y: auto;
+  margin-bottom: 5px;
 }
 
 .article-text {

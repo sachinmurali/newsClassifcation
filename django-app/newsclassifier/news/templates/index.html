@@ -26,10 +26,10 @@
           <div class="col-md-3 categories-pane">
             <h1>Categories</h4>
             <ul class="list-group">
-              <li class="list-group-item category" ng-click="ctrl.GetArticles()">Sports</li>
-              <li class="list-group-item">Economy</li>
-              <li class="list-group-item">Science</li>
-              <li class="list-group-item">Lifestyle</li>
+              <li class="list-group-item category" ng-click="ctrl.GetArticles('Sports')">Sports</li>
+              <li class="list-group-item category" ng-click="ctrl.GetArticles('Economy_business_finance')">Economy</li>
+              <li class="list-group-item category" ng-click="ctrl.GetArticles('Science_technology')">Science</li>
+              <li class="list-group-item category" ng-click="ctrl.GetArticles('Lifestyle')">Lifestyle</li>
             </ul>
           </div>
           <div class="col-md-9 cat-list-pane">

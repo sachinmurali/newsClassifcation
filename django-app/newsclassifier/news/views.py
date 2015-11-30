@@ -22,7 +22,9 @@ def index(request):
     return HttpResponse(html)
 
 def RetrieveArticles(request):
-    all_entries = Article.objects.all()
+    cat = request.GET['category']
+    # print cat
+    all_entries = Article.objects.all().filter(article_category=cat)
     entries = []
     for element in all_entries:
         entries.append(serializers.serialize('json', [element,]))

@@ -4,8 +4,11 @@ angular.module('newsclassifier', [])
 
 .controller('MainController', ['$http', function($http){
   var self = this;
-  self.GetArticles = function() {
-    $http.get('/retrievearticles/').success(function(data, status, headers, config){
+  self.GetArticles = function(cat) {
+    $http({
+      url: '/retrievearticles/',
+      params: {category: cat}
+    }).success(function(data, status, headers, config){
       // self.current_articles = JSON.parse(data[0]);
       var elements = []
       for(var i = 0; i < data.length; i++) {

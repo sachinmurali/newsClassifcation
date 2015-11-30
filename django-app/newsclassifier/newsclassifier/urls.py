@@ -21,5 +21,5 @@ urlpatterns = [
     url(r'^main/', 'news.views.main'),
     url(r'^index/', 'news.views.index'),
     url(r'^getnewarticles/', 'news.views.GetNewArticles'),
-    url(r'^retrievearticles/', 'news.views.RetrieveArticles'),
+    url(r'^retrievearticles/*', 'news.views.RetrieveArticles'),
 ]
