@@ -14,7 +14,6 @@ angular.module('newsclassifier', [])
       for(var i = 0; i < data.length; i++) {
         elements.push(JSON.parse(data[i])[0]);
       }
-      console.log(elements[0]['fields']['article_category']);
       // self.current_articles = [1,2,3,4,5];
       self.current_articles = elements;
     });
